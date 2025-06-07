@@ -101,7 +101,7 @@ LOGMEAL_API_KEY=your_logmeal_api_key_here
 uvicorn main_local:app --reload
 ```
 
-- API available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- API will be available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ---
