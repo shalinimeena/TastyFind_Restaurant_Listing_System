@@ -24,11 +24,11 @@ TastyFind is a full-stack restaurant discovery app powered by FastAPI and Stream
 
 ## Features
 
-- 🔍 Advanced restaurant search: by country, city, cuisine, ID, name, description, image, or geolocation
-- 🍔 Food image recognition powered by LogMeal API
-- 🌐 FastAPI backend with interactive API docs
-- 📊 Streamlit frontend for user-friendly exploration
-- ⚡️ Custom React/TypeScript frontend
+- Advanced restaurant search: by country, city, cuisine, ID, name, description, image, or geolocation
+- Food image recognition powered by LogMeal API
+- FastAPI backend with interactive API docs
+- Streamlit frontend for user-friendly exploration
+- Custom React/TypeScript frontend
 
 ---
 
@@ -60,7 +60,7 @@ TastyFind is a full-stack restaurant discovery app powered by FastAPI and Stream
 
 ---
 
-## 🚀 Local Setup
+## Local Setup
 
 ### 1. Prerequisites
 
