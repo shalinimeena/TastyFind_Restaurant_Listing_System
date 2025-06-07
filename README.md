@@ -15,10 +15,7 @@ TastyFind is a full-stack restaurant discovery app powered by FastAPI and Stream
 - [Frontend (Custom UI)](#frontend-custom-ui)
 - [Usage](#usage)
 - [Troubleshooting](#troubleshooting)
-- [Deployment (Modal + Streamlit Cloud)](#deployment-modal--streamlit-cloud)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Deployment (Modal + Streamlit Cloud + Custom UI)](#deployment-modal--streamlit-cloud--Custom-UI)
 
 ---
 
