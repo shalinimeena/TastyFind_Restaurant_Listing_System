@@ -209,9 +209,8 @@ This repository also contains a custom frontend built with TypeScript, React, an
 2. Deploy `streamlit.py` (and `requirements.txt`) on Streamlit Cloud.
 
 > **Note:**  
-> The first request to your Modal backend may take up to ~3 minutes. Subsequent queries will be much faster.
+> When deploying the backend on Modal, the service uses container-based infrastructure that requires a cold start. This means that if the container has been idle, the first query or API request may take approximately 2–3 minutes to respond while the container starts up. Subsequent requests will be much faster.
 
----
 
 ## Contributing
 
