@@ -153,13 +153,13 @@ This repository also contains a custom frontend built with TypeScript, React, an
 3. Open your browser at [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
 
 4. **API Connection:**  
-   Ensure the frontend is configured to communicate with your FastAPI backend. Check for an environment variable or config file where the backend URL is set.
+   Ensure the frontend is configured to communicate with your FastAPI backend. Check for API_BASE_URL config file where the backend URL is set.
 
 ---
 
-## Usage
+## Usage 
 
-- Use the sidebar to select search modes (by country, city, cuisine, ID, name, description, image, or geolocation)
+- Use the filters to select search modes (by country, city, cuisine, ID, name, description, image, or geolocation)
 - For image search: upload a food image and set your location
 - For geolocation: enter coordinates or use your browser’s location
 
