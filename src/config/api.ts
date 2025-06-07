@@ -1,4 +1,4 @@
-// API Configuration - Single place to manage backend URL
+// API Configuration - manage backend URL
 export const API_CONFIG = {
   BASE_URL: 'https://shalinimeena--tastyfind-app-fastapi-app.modal.run',
 } as const;
