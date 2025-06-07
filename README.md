@@ -1,6 +1,7 @@
 TastyFind_Restaurant_Listing_System
 
 Streamlit Deployment on : https://tastyfind.streamlit.app/
+
 Custom Frontend Deployment on : https://helpful-pasca-d98220.netlify.app/
 
 # 🍽️ TastyFind
