@@ -16,6 +16,7 @@ TastyFind Restaurant Listing System is a full-stack restaurant discovery app pow
 - [Usage](#usage)
 - [Troubleshooting](#troubleshooting)
 - [Deployment (Modal + Streamlit Cloud + Custom UI)](#deployment-modal--streamlit-cloud--Custom-UI)
+- [Example Usage for Image Search](#Example usage for Image Search)
 
 ---
 
@@ -216,4 +217,12 @@ This repository also contains a custom frontend built with TypeScript, React, an
 
 > **⚠️ Warning:**  
 > When deploying the backend on Modal, the service uses container-based infrastructure that requires a cold start. This means that if the container has been idle, the first query or API request may take approximately 2–3 minutes to respond while the container starts up. Subsequent requests will be much faster.
+
+##Example usage for Image Search
+> Make sure to keep the image size under 1mb.
+![piza](https://github.com/user-attachments/assets/ec129773-d771-4748-a4a1-5038b1ae20ea)
+> latitude: 28.61
+> longitude: 77.23
+> Radius: 5km
+
 
