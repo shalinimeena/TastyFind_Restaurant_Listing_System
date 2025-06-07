@@ -136,8 +136,6 @@ This repository also contains a custom frontend built with TypeScript, React, an
 - `src/` — React/TypeScript source code  
 - `index.html`, `vite.config.ts`, etc. — Vite config files
 
-**Deployment:**  
-The custom UI is deployed on Netlify: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
 
 ### Setup & Run the Frontend Locally
 
@@ -172,12 +170,12 @@ The custom UI is deployed on Netlify: [https://helpful-pasca-d98220.netlify.app/
 
 - **File not found:** Ensure `zomato.csv` and `Country-Code.xlsx` are in the same directory as `main_local.py`.
 - **LogMeal errors:** Check your API key and internet connection.
-- **API connection errors:** Make sure `API_BASE_URL` in `streamlit.py` matches your FastAPI server.
+- **API connection errors:** Make sure `API_BASE_URL` in `streamlit.py` and `api.ts` matches your FastAPI server.
 - **Port conflicts:** Use a different port if 8000 or 8501 are in use.
 
 ---
 
-## Deployment (Modal + Streamlit Cloud)
+## Deployment (Modal + Streamlit Cloud + Custom UI)
 
 ### Deploy FastAPI Backend on Modal
 
@@ -211,26 +209,14 @@ The custom UI is deployed on Netlify: [https://helpful-pasca-d98220.netlify.app/
 
 2. Deploy `streamlit.py` (and `requirements.txt`) on Streamlit Cloud.
 
+### Deploy Custom UI
+
+1. Set API_BASE_URL in api.ts:
+     ```python
+    API_BASE_URL = "https://your-app.modal.run"
+    ```
+2. Deploy `streamlit.py` on Netlify.
+
 > **⚠️ Warning:**  
 > When deploying the backend on Modal, the service uses container-based infrastructure that requires a cold start. This means that if the container has been idle, the first query or API request may take approximately 2–3 minutes to respond while the container starts up. Subsequent requests will be much faster.
 
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
----
-
-## License
-
-[MIT](LICENSE) © Shalini Meena
-
----
-
-## Contact
-
-For questions or feedback, please contact [shalinimeena](https://github.com/shalinimeena).
-
----
-
-**Enjoy discovering restaurants with TastyFind!**
