@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pandas
+numpy
+geopy
+pydantic
+python-dotenv
+sentence-transformers
+openpyxl
+requests
+pillow
+python-multipart
+streamlit
