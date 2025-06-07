@@ -1,6 +1,6 @@
 # 🍽️ TastyFind Restaurant Listing System
 
-[Live Streamlit Demo](https://tastyfind.streamlit.app/) | [Custom Frontend Demo](https://helpful-pasca-d98220.netlify.app/)
+[Live Streamlit Demo](https://tastyfind.streamlit.app/) | [Custom Frontend Demo (Netlify)](https://helpful-pasca-d98220.netlify.app/)
 
 TastyFind is a full-stack restaurant discovery app powered by FastAPI and Streamlit. Users can search for restaurants by country, city, cuisine, name, description, geolocation, or even food images (with LogMeal API integration).
 
@@ -35,7 +35,7 @@ TastyFind is a full-stack restaurant discovery app powered by FastAPI and Stream
 ## Live Demo
 
 - Streamlit: [https://tastyfind.streamlit.app/](https://tastyfind.streamlit.app/)
-- Custom Frontend: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
+- Custom Frontend (UI) on Netlify: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
 
 ---
 
@@ -136,6 +136,9 @@ This repository also contains a custom frontend built with TypeScript, React, an
 - `src/` — React/TypeScript source code  
 - `index.html`, `vite.config.ts`, etc. — Vite config files
 
+**Deployment:**  
+The custom UI is deployed on Netlify: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
+
 ### Setup & Run the Frontend Locally
 
 1. Install dependencies:
@@ -208,7 +211,7 @@ This repository also contains a custom frontend built with TypeScript, React, an
 
 2. Deploy `streamlit.py` (and `requirements.txt`) on Streamlit Cloud.
 
-> **Note:**  
+> **⚠️ Warning:**  
 > When deploying the backend on Modal, the service uses container-based infrastructure that requires a cold start. This means that if the container has been idle, the first query or API request may take approximately 2–3 minutes to respond while the container starts up. Subsequent requests will be much faster.
 
 
