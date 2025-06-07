@@ -15,8 +15,8 @@ TastyFind Restaurant Listing System is a full-stack restaurant discovery app pow
 - [Frontend (Custom UI)](#frontend-custom-ui)
 - [Usage](#usage)
 - [Troubleshooting](#troubleshooting)
-- [Deployment (Modal + Streamlit Cloud + Custom UI)](#deployment-modal--streamlit-cloud--Custom-UI)
-- [Example Usage for Image Search](#Example usage for Image Search)
+- [Deployment (Modal + Streamlit Cloud + Custom UI)](#deployment-modal--streamlit-cloud--custom-ui)
+- [Example Usage for Image Search](#example-usage-for-image-search)
 
 ---
 
@@ -134,7 +134,6 @@ This repository also contains a custom frontend built with TypeScript, React, an
 - `src/` — React/TypeScript source code  
 - `index.html`, `vite.config.ts`, etc. — Vite config files
 
-
 ### Setup & Run the Frontend Locally
 
 1. Install dependencies:
@@ -209,20 +208,28 @@ This repository also contains a custom frontend built with TypeScript, React, an
 
 ### Deploy Custom UI
 
-1. Set API_BASE_URL in api.ts:
-     ```python
-    API_BASE_URL = "https://your-app.modal.run"
+1. Set API_BASE_URL in `api.ts`:
+    ```typescript
+    export const API_BASE_URL = "https://your-app.modal.run";
     ```
-2. Deploy `streamlit.py` on Netlify.
+2. Deploy the frontend on Netlify.
 
 > **⚠️ Warning:**  
 > When deploying the backend on Modal, the service uses container-based infrastructure that requires a cold start. This means that if the container has been idle, the first query or API request may take approximately 2–3 minutes to respond while the container starts up. Subsequent requests will be much faster.
 
-##Example usage for Image Search
-> Make sure to keep the image size under 1mb.
-![piza](https://github.com/user-attachments/assets/ec129773-d771-4748-a4a1-5038b1ae20ea)
-> latitude: 28.61
-> longitude: 77.23
-> Radius: 5km
+---
 
+## Example Usage for Image Search
 
+- **Image size:** Make sure to keep the image size under 1MB.
+- **Example location and radius:**
+  - Latitude: `28.61`
+  - Longitude: `77.23`
+  - Radius: `5km`
+- **How to use:**  
+  - Select "Image Search" mode.
+  - Upload your food image (under 1MB).
+  - Enter your latitude and longitude, and specify the search radius.
+  - Click "Search" to find restaurants serving similar food near your location.
+
+![pizza](https://github.com/user-attachments/assets/ec129773-d771-4748-a4a1-5038b1ae20ea)
