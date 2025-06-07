@@ -1,13 +1,62 @@
-TastyFind_Restaurant_Listing_System
+# 🍽️ TastyFind Restaurant Listing System
 
-Streamlit Deployment on : https://tastyfind.streamlit.app/
+[Live Streamlit Demo](https://tastyfind.streamlit.app/) | [Custom Frontend Demo](https://helpful-pasca-d98220.netlify.app/)
 
-Custom Frontend Deployment on : https://helpful-pasca-d98220.netlify.app/
+TastyFind is a full-stack restaurant discovery app powered by FastAPI and Streamlit. Users can search for restaurants by country, city, cuisine, name, description, geolocation, or even food images (with LogMeal API integration).
 
-# 🍽️ TastyFind
+---
 
-**TastyFind** is a full-stack restaurant discovery app powered by FastAPI and Streamlit.  
-It supports advanced search by country, city, cuisine, name, description, geolocation, and even food image recognition via the LogMeal API.
+## Table of Contents
+
+- [Features](#features)
+- [Live Demo](#live-demo)
+- [Project Structure](#project-structure)
+- [Local Setup](#local-setup)
+- [Frontend (Custom UI)](#frontend-custom-ui)
+- [Usage](#usage)
+- [Troubleshooting](#troubleshooting)
+- [Deployment (Modal + Streamlit Cloud)](#deployment-modal--streamlit-cloud)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## Features
+
+- 🔍 Advanced restaurant search: by country, city, cuisine, ID, name, description, image, or geolocation
+- 🍔 Food image recognition powered by LogMeal API
+- 🌐 FastAPI backend with interactive API docs
+- 📊 Streamlit frontend for user-friendly exploration
+- ⚡️ Custom React/TypeScript frontend
+
+---
+
+## Live Demo
+
+- Streamlit: [https://tastyfind.streamlit.app/](https://tastyfind.streamlit.app/)
+- Custom Frontend: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
+
+---
+
+## Project Structure
+
+```
+├── Backend/                # Backend-related files/folders (if any)
+├── src/                    # Custom frontend source code (TypeScript/React)
+│   ├── components/         # React components
+│   ├── pages/              # Page components/views
+│   └── ...                 # Other frontend files
+├── index.html              # Frontend HTML entry point (for Vite/React)
+├── main_local.py           # FastAPI backend entry point (local)
+├── streamlit.py            # Streamlit frontend entry point
+├── requirements.txt        # Python dependencies
+├── package.json            # Frontend dependencies and scripts
+├── vite.config.ts          # Vite config for frontend
+├── zomato.csv              # Restaurant dataset
+├── Country-Code.xlsx       # Country codes dataset
+└── ...
+```
 
 ---
 
@@ -15,131 +64,171 @@ It supports advanced search by country, city, cuisine, name, description, geoloc
 
 ### 1. Prerequisites
 
-- Python 3.8+ installed
-- Project files:
-  - `main_local.py` (FastAPI backend)
-  - `streamlit.py` (Streamlit frontend)
-  - `requirements.txt` (dependencies)
-  - Data files: `zomato.csv`, `Country-Code.xlsx`
-  - A valid LogMeal API key (for image search)
+- Python 3.8+
+- Node.js (for the custom frontend)
+- The following files:  
+  `main_local.py`, `streamlit.py`, `requirements.txt`, `zomato.csv`, `Country-Code.xlsx`
+- A valid LogMeal API key (for image search)
 
 ---
 
-### 2. Install Dependencies
+### 2. Install Backend Dependencies
 
 Create and activate a virtual environment (recommended):
+
+```bash
 python -m venv venv
-source venv/bin/activate # On Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install --upgrade pip
 pip install -r requirements.txt
-
+```
 
 ---
 
 ### 3. Set Up Environment Variables
 
-Create a `.env` file in your project directory with your LogMeal API key:
+Create a `.env` file in your project directory:
 
+```
 LOGMEAL_API_KEY=your_logmeal_api_key_here
-
+```
 
 ---
 
 ### 4. Start the FastAPI Backend
 
+```bash
 uvicorn main_local:app --reload
+```
 
-
-
-- The API will be available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- API available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ---
 
 ### 5. Configure the Streamlit Frontend
 
-**IMPORTANT:**  
-Before running Streamlit, **double-check that the `API_BASE_URL` variable in your `streamlit.py` is set to the correct FastAPI server URL.**  
-For local development, it should be:
+Make sure `API_BASE_URL` in `streamlit.py` points to your FastAPI server, e.g.:
 
+```python
 API_BASE_URL = "http://127.0.0.1:8000"
-
-
----
-
-
-If you are running the backend on a different host or port (for example, in Docker or on a remote server), update `API_BASE_URL` accordingly.
+```
 
 ---
 
 ### 6. Start the Streamlit Frontend
 
-Open a **new terminal** (keep the backend running):
+Open another terminal and run:
 
+```bash
 streamlit run streamlit.py
+```
 
-
-- The app will open at: [http://localhost:8501](http://localhost:8501)
-
----
-
-### 7. Usage
-
-- Use the sidebar to select search modes: by country, city, cuisine, ID, name, description, image, or geolocation.
-- For image search, upload a food image and set your location.
-- For geolocation, you can enter coordinates or use browser location.
+- App will be available at: [http://localhost:8501](http://localhost:8501)
 
 ---
 
-### 8. Troubleshooting
+## Frontend (Custom UI)
+
+This repository also contains a custom frontend built with TypeScript, React, and Vite.
+
+**Location:**  
+- `src/` — React/TypeScript source code  
+- `index.html`, `vite.config.ts`, etc. — Vite config files
+
+### Setup & Run the Frontend Locally
+
+1. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+2. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+3. Open your browser at [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+4. **API Connection:**  
+   Ensure the frontend is configured to communicate with your FastAPI backend. Check for an environment variable or config file where the backend URL is set.
+
+---
+
+## Usage
+
+- Use the sidebar to select search modes (by country, city, cuisine, ID, name, description, image, or geolocation)
+- For image search: upload a food image and set your location
+- For geolocation: enter coordinates or use your browser’s location
+
+---
+
+## Troubleshooting
 
 - **File not found:** Ensure `zomato.csv` and `Country-Code.xlsx` are in the same directory as `main_local.py`.
 - **LogMeal errors:** Check your API key and internet connection.
-- **API connection errors:** Double-check that `API_BASE_URL` in `streamlit.py` matches your FastAPI server address and port.
-- **Port conflicts:** If 8000 or 8501 are in use, specify another port.
+- **API connection errors:** Make sure `API_BASE_URL` in `streamlit.py` matches your FastAPI server.
+- **Port conflicts:** Use a different port if 8000 or 8501 are in use.
 
 ---
 
-### 9. Stopping the App
+## Deployment (Modal + Streamlit Cloud)
 
-Press `CTRL+C` in each terminal to stop the backend and frontend servers.
+### Deploy FastAPI Backend on Modal
+
+1. **Install Modal CLI**
+
+    ```bash
+    pip install modal
+    ```
+
+2. **Authenticate with Modal**
+
+    ```bash
+    modal token new
+    ```
+
+3. **Deploy your backend**
+
+    ```bash
+    modal deploy main.py
+    ```
+
+    - Note the deployed URL (e.g., `https://your-app.modal.run`).
+
+### Deploy Streamlit Frontend
+
+1. In `streamlit.py`, set:
+
+    ```python
+    API_BASE_URL = "https://your-app.modal.run"
+    ```
+
+2. Deploy `streamlit.py` (and `requirements.txt`) on Streamlit Cloud.
+
+> **Note:**  
+> The first request to your Modal backend may take up to ~3 minutes. Subsequent queries will be much faster.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+---
+
+## License
+
+[MIT](LICENSE) © Shalini Meena
+
+---
+
+## Contact
+
+For questions or feedback, please contact [shalinimeena](https://github.com/shalinimeena).
 
 ---
 
 **Enjoy discovering restaurants with TastyFind!**
-
-
-# TastyFind Deployment (Modal + Streamlit Cloud)
-
-## Deploy FastAPI Backend on Modal
-
-1. **Install Modal CLI**
-pip install modal
-
-
-2. **Authenticate with Modal**
-modal token new
-
-
-3. **Deploy your backend**
-modal deploy main.py
-
-- Note the deployed URL (e.g., `https://your-app.modal.run`).
-
-## Deploy Streamlit Frontend
-
-1. In `streamlit.py`, set:
-API_BASE_URL = "https://your-app.modal.run"
-
-2. Deploy `streamlit.py` (and `requirements.txt`) on Streamlit Cloud.
-
----
-
-**Note:**  
-The first request to your Modal backend may take up to ~3 minutes as the container starts.  
-Subsequent queries will be fast (a few seconds).
-
-## Custom Frontend:
-
-
-
