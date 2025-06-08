@@ -1,6 +1,6 @@
 # 🍽️ TastyFind Restaurant Listing System
 
-[Live Streamlit Demo](https://tastyfind.streamlit.app/) | [Custom Frontend Demo (Netlify)](https://helpful-pasca-d98220.netlify.app/)
+[Live Streamlit Demo](https://tastyfind.streamlit.app/) | [Custom Frontend Demo (Netlify)](https://zippy-syrniki-38fb0f.netlify.app/)
 
 TastyFind Restaurant Listing System is a full-stack restaurant discovery app powered by FastAPI and Streamlit. Users can search for restaurants by country, city, cuisine, name, description, geolocation, or even food images (with LogMeal API integration).
 
