@@ -17,6 +17,7 @@ interface UseRestaurantsReturn {
   semanticSearch: (request: SemanticSearchRequest) => Promise<void>;
   imageSearch: (file: File, lat: number, lng: number, radius: number) => Promise<void>;
   browseAllRestaurants: (page?: number, limit?: number) => Promise<void>;
+  getRestaurantById: (restaurantId: number) => Promise<void>;
   setPage: (page: number) => void;
   setPageSize: (pageSize: number) => void;
   clearResults: () => void;
@@ -66,6 +67,26 @@ export const useRestaurants = (): UseRestaurantsReturn => {
       setCurrentPage(1);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Search failed');
+      setRestaurants([]);
+      setTotalResults(0);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const getRestaurantById = useCallback(async (restaurantId: number) => {
+    setLoading(true);
+    setError(null);
+    setLastSearchType('restaurantId');
+    setLastSearchParams({ restaurantId });
+    
+    try {
+      const result = await restaurantService.getRestaurantById(restaurantId);
+      setRestaurants([result]);
+      setTotalResults(1);
+      setCurrentPage(1);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Restaurant not found');
       setRestaurants([]);
       setTotalResults(0);
     } finally {
@@ -169,6 +190,9 @@ export const useRestaurants = (): UseRestaurantsReturn => {
         case 'query':
           // Query searches don't support pagination in the backend
           break;
+        case 'restaurantId':
+          // Restaurant ID searches don't support pagination
+          break;
         case 'nearby':
           // Nearby searches don't support pagination in the backend
           break;
@@ -235,6 +259,7 @@ export const useRestaurants = (): UseRestaurantsReturn => {
     semanticSearch,
     imageSearch,
     browseAllRestaurants,
+    getRestaurantById,
     setPage,
     setPageSize,
     clearResults,

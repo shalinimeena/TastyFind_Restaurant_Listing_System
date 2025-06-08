@@ -21,6 +21,7 @@ function App() {
     semanticSearch,
     imageSearch,
     browseAllRestaurants,
+    getRestaurantById,
     setPage,
     setPageSize,
   } = useRestaurants();
@@ -33,13 +34,16 @@ function App() {
   const handleSearch = async (type: string, data: any) => {
     switch (type) {
       case 'basic':
-        if (data.restaurantId) {
-          // Search by restaurant ID using the search endpoint
-          await searchByQuery({ restaurantId: data.restaurantId, limit: data.limit || 20 });
-        } else {
-          // Use regular restaurant listing with filters
-          await searchRestaurants(data);
-        }
+        // Use regular restaurant listing with filters (for cost filtering)
+        await searchRestaurants(data);
+        break;
+      case 'query':
+        // Use search endpoint for name, city, cuisine, country searches
+        await searchByQuery(data);
+        break;
+      case 'restaurantId':
+        // Search by restaurant ID
+        await getRestaurantById(data.restaurantId);
         break;
       case 'location':
         await searchNearby(data);
@@ -137,7 +141,8 @@ function App() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">
                   {isSemanticResults ? 'Smart Search Results' : 
-                   lastSearchType === 'browse' ? 'All Restaurants' : 'Restaurant Results'}
+                   lastSearchType === 'browse' ? 'All Restaurants' : 
+                   lastSearchType === 'restaurantId' ? 'Restaurant Details' : 'Restaurant Results'}
                 </h2>
                 <p className="text-gray-600 mt-1">
                   {supportsPagination ? (

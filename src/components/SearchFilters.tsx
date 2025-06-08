@@ -57,16 +57,36 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
   };
 
   const handleBasicSearch = () => {
+    // Check if this is a restaurant ID search
+    if (restaurantId) {
+      onSearch('restaurantId', {
+        restaurantId: parseInt(restaurantId),
+        limit: resultsPerPage,
+      });
+      return;
+    }
+
+    // Check if this is a search query (name, city, cuisine, country)
+    if (restaurantName || city || cuisine || selectedCountry) {
+      const queryFilters: any = {
+        limit: resultsPerPage,
+      };
+
+      if (restaurantName) queryFilters.restaurantName = restaurantName;
+      if (city) queryFilters.city = city;
+      if (cuisine) queryFilters.cuisine = cuisine;
+      if (selectedCountry) queryFilters.country = selectedCountry;
+
+      onSearch('query', queryFilters);
+      return;
+    }
+
+    // Otherwise, use the regular restaurant listing with cost filters
     const filters: any = {
       page: 1,
       limit: resultsPerPage,
     };
 
-    if (selectedCountry) filters.country = selectedCountry;
-    if (city) filters.city = city;
-    if (cuisine) filters.cuisine = cuisine;
-    if (restaurantName) filters.restaurantName = restaurantName;
-    if (restaurantId) filters.restaurantId = restaurantId;
     if (minCost) filters.minCost = parseFloat(minCost);
     if (maxCost) filters.maxCost = parseFloat(maxCost);
 
