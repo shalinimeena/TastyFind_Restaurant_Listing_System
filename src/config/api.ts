@@ -10,5 +10,5 @@ export const API_ENDPOINTS = {
   NEARBY: '/restaurants/nearby',
   SEMANTIC_SEARCH: '/semantic-search',
   IMAGE_SEARCH: '/image-search-nearby',
-  RESTAURANT_BY_ID: '/restaurants/{restaurant_id}',
+  RESTAURANT_BY_ID: '/restaurants',
 } as const;
