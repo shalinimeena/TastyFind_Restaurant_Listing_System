@@ -33,7 +33,7 @@ TastyFind Restaurant Listing System is a full-stack restaurant discovery app pow
 ## Live Demo
 
 - Streamlit: [https://tastyfind.streamlit.app/](https://tastyfind.streamlit.app/)
-- Custom Frontend (UI) on Netlify: [https://helpful-pasca-d98220.netlify.app/](https://helpful-pasca-d98220.netlify.app/)
+- Custom Frontend (UI) on Netlify: [https://zippy-syrniki-38fb0f.netlify.app/](https://zippy-syrniki-38fb0f.netlify.app/)
 
 ---
 
