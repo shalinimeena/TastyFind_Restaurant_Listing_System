@@ -191,7 +191,7 @@ This repository also contains a custom frontend built with TypeScript, React, an
 3. **Deploy your backend**
 
     ```bash
-    modal deploy main.py
+    modal deploy app_modal.py
     ```
 
     - Note the deployed URL (e.g., `https://your-app.modal.run`).
